@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="veggieFruits">
     <head>
         <title>Fruit and Veggies</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-        <script src="js/fruits_and_veggies_test.js"></script>
+        <script src="js/fruits_and_veggies.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-controller="ToDoCtrl">
         <div class="container">
             <h1>Fruit and Veggies</h1>
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-sm-4">
-                    col 1
+                    <h3>Fruits</h3>
+                    <ul class="panel panel-default list-unstyled text-center">
+                        <li ng-repeat="item in fruitSorted track by $index" class="panel-body"> 
+                            {{ item }} 
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-sm-4">
-                    col 2
+                    <h3>Pool</h3>
+                    <ul class="panel panel-default list-unstyled">
+                        <li ng-repeat="item in poolList | orderBy track by $index" class="panel-body"> 
+                            <button class="btn btn-warning" style="float: left;" ng-click="toFruit($index)">Fruit</button>
+                            {{ item }} {{index}}
+                            <button class="btn btn-success" style="float: right;" ng-click="toVeg($index)">Veggie</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-sm-4">
-                    col 3
+                    <h3>Veggies</h3>
+                    <ul class="panel panel-default list-unstyled">
+                        <li ng-repeat="item in vegSorted track by $index" class="panel-body"> {{ item }}</li>
+                    </ul>
                 </div>
             </div>
         </div>

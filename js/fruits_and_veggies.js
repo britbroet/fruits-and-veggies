@@ -1,5 +1,6 @@
 // this file defines 2 arrays for you
 
+
 var fruits = [
   'Apple',
   'Apricot',
